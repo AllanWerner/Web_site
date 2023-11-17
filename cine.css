@@ -1,0 +1,319 @@
+body{
+    margin: 0;
+    background-image: url("images/cine1.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+}
+
+.bloc{
+    margin-top: 5%;
+}
+
+.b2{
+    margin-left: 15%;
+}
+
+h2{
+    text-transform: uppercase;
+    font-size: 2em;
+    color: white;
+    padding-left: 5%;
+}
+
+hr{
+    color: black;
+    width: 80%;
+    border: solid 1px;
+}
+
+/* Bout de code pour carte animée(bloc b2) */
+@import url("https://fonts.googleapsis.com/css/family=Cardo:400i|Rubik:400,700&display=swap");
+
+/* Définition de variables personnalisées pour usage ultérieur */
+:root{
+    --d: 700ms;
+    --e: cubic-bezier(0.19,1,0.22,1); /*définition d'une fonction de temporisation personnalisée pour les animations et les transitions*/
+    /* Cette fonction prend en paramètre 02 points qui sont celui de départ et celui d'arrivée */
+    --font-sans: "Rubik", sans-serif;
+    --font-serif: "Cardo", serif;
+}
+
+/* display: grid me permet de définir le sélecteur comme un conteneur de grille */
+.container{
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    grid-gap: 2.5rem;
+    padding: 1rem;
+    max-width: 1200px;
+    font-family: var(--font-sans);
+}
+
+.card{
+    position: relative;
+    display: flex;
+    align-items: flex-end;/*aligne les éléments le long de l'axe tranversal(vers la fin)*/
+    overflow: hidden;/*coupe le contenu du conteneur si celui ci dépasse sans générer de scrollbar*/
+    padding: 1rem;
+    width: 100%;
+    text-align: center;
+    color: whitesmoke;
+    background: whitesmoke;
+    box-shadow: 0 1px 1px rgba(0,0,0,0.1), 0 2px 2px rgba(0,0,0,0.1), 0 4px 4px rgba(0,0,0,0.1), 0 8px 8px rgba(0,0,0,0.1), 0 16px 16px rgba(0,0,0,0.1);
+}
+
+/*avec before je peux styliser un contenu généré avant le contenu réel*/
+.card:before{
+    content: "";
+    position: absolute;
+    top:0 ;
+    left: 0 ;
+    width: 100%;
+    height: 110%;
+    background-size: cover;
+    background-position: 0 0;
+    transition: transform calc(var(--d)*1.5) var(--e); /*permet de créér une transition animée dont la duréé depent de --d et de la fonction --e*/
+    pointer-events: none;
+}
+
+.card:after{
+    content: "";
+    display: block;
+    position: absolute;
+    top:0 ;
+    left: 0 ;
+    width: 100%;
+    height: 200%;
+    pointer-events: none;
+    transform: translateY(-50%);
+    transition: transform calc(var(--d)*2) var(--e); 
+}
+
+.card:nth-child(1):before{
+    background-image: url(images/john_wick.webp);
+}
+
+.card:nth-child(2):before{
+    background-image: url(images/antman.jpg);
+}
+
+.card:nth-child(3):before{
+    background-image: url(images/spider.jpg);
+}
+
+.card:nth-child(4):before{
+    background-image: url(images/asta.webp);
+}
+
+.content{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    padding: 1rem;
+    transition: transform var(--d) var(--e);
+    z-index: 1;/*contrôler la pile d'empilement des éléments */
+}
+
+/* Ce sélcteur cible tous les éléments enfants directs de la classe content */
+.content>*+*{
+    margin-top: 1rem;
+}
+
+.title_card{
+    font-size: 1.3rem;
+    font-weight: bold;
+    line-height: 1.2;
+}
+
+.descri{
+    font-family: var(--font-serif);
+    font-size: 1.125rem;
+    font-style: italic;
+    line-height: 1.35;
+}
+
+.btn{
+    cursor: pointer;
+    margin-top: 1.5rem;
+    padding: 0.75rem 1.5rem;
+    font-size: 0.65rem;
+    font-weight: bold;
+    letter-spacing: 0.025rem;
+    text-transform: uppercase;
+    color: azure;
+    background: black;
+    border: none;
+}
+
+.btn:hover{
+    background-color:#474444;
+}
+
+.btn:focus{
+    outline: 1px dashed yellow;
+    outline-offset: 3px;
+}
+
+.card:after{
+    transform: translateY(0);
+}
+
+.content{
+    transform: translateY(calc(100% - 4.5rem));
+}
+
+.content>*:not(.title_card){
+    opacity: 0;
+    transform: translateY(1rem);
+    transition: transform var(--d) var(--e), opacity var(--d) var(--e);
+}
+
+.card:hover{
+    align-items: center;
+}
+
+.card:hover:before{
+    transform: translateY(4%);
+}
+
+.card:hover:after{
+    transform: translateY(-50%);
+}
+
+.card:hover .content{
+    transform: translateY(0);
+}
+
+.card:hover .content>*:not(.title_card){
+    opacity: 1;
+    transform: translateY(0);
+    transition-delay: calc(var(--d) / 8);
+}
+
+/* Bout de code section tableau(bloc b3) */
+
+table{
+    width: 800px;
+    font-family: sans-serif;
+    font-weight: 100;
+    border-collapse: collapse;
+    overflow: hidden;
+    box-shadow: 0 0 20px #0000001a;
+    margin-top: 5%;
+    margin-left: 20%;
+}
+
+th,td{
+    background-color: #ffffff33;
+    padding: 15px;
+    color: #fff;
+}
+
+th{
+    text-align: left;
+}
+
+thead th{
+    background-color: #45044c;
+}
+
+tbody tr:hover{
+    background-color: #ffffff4d;
+}
+
+tbody td{
+    position: relative;
+}
+
+tbody td:hover:before{
+    content: "";
+    position: absolute;
+    background-color: #ffffff33 ;
+    left: 0;
+    right: 0;
+    top: -9999px;
+    bottom: -9999px;
+    z-index: -1;
+}
+
+/* Bout de code bloc b4 */
+
+.b4{
+    padding-left: 5%;
+    margin-bottom: 10%;
+}
+
+.pstream{
+    font-size: 1.5em;
+    color: azure;
+}
+
+.btn-stre button{
+    background: transparent;
+    border: none;
+    margin-left: 5%;
+    padding: 1.6%;
+}
+
+.btn-stre a{
+    color: azure;
+}
+
+.btn-stre button:hover{
+    background: rgb(16, 95, 131);
+    border: 1px solid black;
+    border-radius: 1em;
+}
+
+/* Bout de code footer */
+footer{
+    padding: 3%;
+    background:  transparent;
+    display: flex;
+    justify-content: space-evenly;
+    gap: 1%;
+}
+
+footer p,h4,h2 {
+    color: black;
+    font-size: 1.2em;
+}
+
+footer:hover{
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+footer:hover p,h4,h2 {
+    color: azure;
+    font-size: 1.2em;
+}
+
+.f-link img{
+    width: auto;
+    height: 1.3em;
+}
+
+
+.f-link{
+    margin: 0 10px;
+    border-radius: 50%;
+    box-sizing: border-box;
+    background: #fff;
+    width: 35px;
+    height: 35px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    transition: 0.5s;
+    background: rgba(0,0,0,0.1);
+    font-size: 1.5em;
+}
+
+.media-bloc{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}

@@ -1,0 +1,79 @@
+body {
+    margin: 0;
+}
+
+header{
+    padding: 1%;
+    background:  transparent;
+    display: flex;
+    justify-content: space-between;
+    gap: 1%;
+}
+
+header:hover{
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+.btn-navbar{
+    display: flex;
+    justify-content: space-between;
+}
+
+ul{
+    display: flex;
+    justify-content: space-between;
+    text-align: end;
+    width: auto;
+    list-style-type: none;
+    gap: 5%;
+    width: 30rem;
+    padding: 0;
+    text-decoration: none;
+}
+
+
+
+.logo > img {
+    width: 75px;
+    height: 75px;
+    border-radius: 50%;
+}
+
+/* Bout de code pour l'animation du titre du header */
+@import url("https://font.googleapis.com/css?family=Neuton|Oswald"); /*permet d'importer les polices Neuton et Oswald sur des feuiles de styles externes*/
+
+h1{
+    width:18em;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    font: "Neuton";
+    color: #ffffff40;
+    border: 4px double #ffffff40;
+    padding: 0.2em;
+    display: block;
+    margin: auto;
+    text-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
+    background: url("https://codetheworld.io/wp-content/uploads/2023/11/rNPwjWM-animated-text-fill.png") repeat-y; /*permet de repeter à la verticale l'image dont l'url est fourni en background*/
+    -webkit-background-clip: text; /*définit comment la couleur de fond doit être appliquée à mon élément*/
+    -webkit-text-fill-color: transparent;
+    animation: anim 80s linear infinite;
+}
+
+@-webkit-keyframes anim {
+    0% {
+        background-position: 0% 50%;
+    }
+    100%{
+        background-position: 100% 50%;
+    }
+}
+
+li{
+    box-shadow: 0 0px 0px rgba(0, 0, 0, 0.19);
+}
+
+li:hover{
+    color:rgba(240, 229, 223, 0.98) ;
+    text-shadow: 0 10px 20px rgba(255, 255, 255, 0.98);
+    text-decoration: underline;
+}

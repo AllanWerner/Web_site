@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" type="text/css" href="form.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>formulaire</title>
+  </head>
+  <body>
+      <div class="logbox">
+        <h1>Login</h1>
+        <form action="/submit">
+          <!-- On utilise for et id pour lier le label et la zone de texte -->
+          <!-- L'attribut placeholder permet de mettre un indication dans la zone de texte -->
+          <div class="box">
+            <input type="text" placeholder="Nom" id="nom" required />
+          </div>
+          <br />
+
+          <div class="box">
+            <input type="text" placeholder="Prenom" id="prenom" required />
+          </div>
+          <br />
+
+          <div class="box">
+            <input type="email" placeholder="Email" id="mail" required />
+          </div>
+          <br />
+
+          <div class="box">
+            <input type="tel" placeholder="Numéro de télephone" id="phone" required />
+          </div>
+          <br />
+
+          <select id="event">
+            <option value="none"></option>
+            <option value="Cinema">Cinéma</option>
+            <option value="Concert">Concert</option>
+            <option value="Conférence">Conférence</option>
+          </select>
+          <br />
+
+          <button>
+            <a href="#" class="envoie">Submit</a>
+          </button>
+        </form>
+      </div>
+  </body>
+</html>
